@@ -125,3 +125,11 @@ input {
 	margin: 5px;
 	margin-bottom: 10px;
 }
+.myImg {
+	height: 300px;
+	width: 350px;
+}
+.card {
+	display: inline-grid;
+	margin: 10px;
+}
