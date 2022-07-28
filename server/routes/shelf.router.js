@@ -26,7 +26,16 @@ router.get('/', (req, res) => {
  * Add an item for the logged in user to the shelf
  */
 router.post('/', (req, res) => {
-	// endpoint functionality
+	const { url, description } = req.body;
+	const queryText = 'INSERT INTO item (image_url, description) VALUES ($1, $2);';
+	pool
+		.query(queryText, [url, description])
+		.then(() => {
+			res.sendStatus(200);
+		})
+		.catch((err) => {
+			console.log('ERRRRRRORRRRR IN POST', err);
+		});
 });
 
 /**
