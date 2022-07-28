@@ -8,23 +8,20 @@ body {
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	margin: 0px;
 	background: linear-gradient(
-			217deg,
-			rgba(172, 53, 186, 1) 0%,
-			rgba(219, 232, 23, 1) 47%,
-			rgba(217, 127, 55, 1) 89%
-		),
-		linear-gradient(
-			127deg,
-			rgba(108, 99, 255, 1) 0%,
-			rgba(61, 255, 72, 1) 48%,
-			rgba(136, 52, 193, 1) 89%
-		),
-		linear-gradient(
-			336deg,
-			rgba(228, 18, 18, 1) 0%,
-			rgba(61, 249, 255, 1) 48%,
-			rgba(221, 58, 222, 1) 89%
-		);
+		217deg,
+		rgba(172, 53, 186, 1),
+		rgba(219, 232, 23, 1),
+		rgba(217, 127, 55, 1),
+		rgba(108, 99, 255, 1),
+		rgba(61, 255, 72, 1),
+		rgba(136, 52, 193, 1),
+		rgba(228, 18, 18, 1),
+		rgba(61, 249, 255, 1),
+		rgba(221, 58, 222, 1),
+		rgba(61, 249, 255, 1),
+		rgba(255, 61, 236, 1),
+		rgba(255, 169, 0, 1)
+	);
 }
 
 img {
