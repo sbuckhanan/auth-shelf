@@ -13,6 +13,11 @@ function ShelfPage() {
 		dispatch({ type: 'ADD_ITEM', payload: { url, description, user_id: user.id } });
 	};
 
+	const doDelete = (id) => {
+		console.log('THIS IS ITEM ID', id);
+		dispatch({ type: 'DELETE_ITEM', payload: id });
+	};
+
 	useEffect(() => {
 		dispatch({ type: 'GET_ITEMS' });
 		console.log('THIS IS ITEMS', items);
@@ -34,7 +39,7 @@ function ShelfPage() {
 					<div>
 						<img src={item.image_url} />
 						<p>{item.description}</p>
-						<button>DELETE</button>
+						<button onClick={() => doDelete(item.id)}>DELETE</button>
 					</div>
 				) : (
 					<div>
