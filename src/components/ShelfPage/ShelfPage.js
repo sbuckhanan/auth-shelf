@@ -47,14 +47,15 @@ function ShelfPage() {
 			<h2>Shelf</h2>
 			{items.map((item) =>
 				item.user_id === user.id ? (
-					<div>
-						<img src={item.image_url} />
+					<div className='card'>
+						<img className='myImg' src={item.image_url} />
 						<p>{item.description}</p>
 						<button onClick={() => doDelete(item.id)}>DELETE</button>
+						<button>EDIT</button>
 					</div>
 				) : (
-					<div>
-						<img src={item.image_url} />
+					<div className='card'>
+						<img className='myImg' src={item.image_url} />
 						<p>{item.description}</p>
 					</div>
 				)
