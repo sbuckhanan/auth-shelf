@@ -26,7 +26,16 @@ router.get('/', (req, res) => {
  * Add an item for the logged in user to the shelf
  */
 router.post('/', (req, res) => {
-	// endpoint functionality
+	const { url, description, user_id } = req.body;
+	const queryText = 'INSERT INTO item (image_url, description, user_id) VALUES ($1, $2, $3);';
+	pool
+		.query(queryText, [url, description, user_id])
+		.then(() => {
+			res.sendStatus(200);
+		})
+		.catch((err) => {
+			console.log('ERRRRRRORRRRR IN POST', err);
+		});
 });
 
 /**
@@ -34,6 +43,16 @@ router.post('/', (req, res) => {
  */
 router.delete('/:id', (req, res) => {
 	// endpoint functionality
+	const id = req.params.id;
+	const queryText = 'DELETE FROM item WHERE id = $1;';
+	pool
+		.query(queryText, [id])
+		.then(() => {
+			res.sendStatus(201);
+		})
+		.catch((err) => {
+			console.log('ERROR IN DELETE', err);
+		});
 });
 
 /**

@@ -12,6 +12,26 @@ function* getItems() {
 	}
 }
 
+function* addItem(action) {
+	try {
+		yield axios.post('/api/shelf', action.payload);
+		yield put({ type: 'GET_ITEMS' });
+	} catch (error) {
+		console.log('Error in ADD items', error);
+	}
+}
+
+function* deleteItem(action) {
+	try {
+		yield axios.delete(`/api/shelf/${action.payload}`);
+		yield put({ type: 'GET_ITEMS' });
+	} catch (error) {
+		console.log('Error in DELETE item', error);
+	}
+}
+
 export default function* getItemsSaga() {
 	yield takeLatest('GET_ITEMS', getItems);
+	yield takeLatest('ADD_ITEM', addItem);
+	yield takeLatest('DELETE_ITEM', deleteItem);
 }
