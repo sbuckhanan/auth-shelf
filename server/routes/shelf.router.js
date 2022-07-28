@@ -20,6 +20,20 @@ router.get('/', (req, res) => {
 		});
 });
 
+router.get('/personal/:id', (req, res) => {
+	const id = req.params.id;
+	let queryText = `SELECT * FROM "item" WHERE user_id = $1;`;
+	pool
+		.query(queryText, [id])
+		.then((result) => {
+			res.send(result.rows);
+		})
+		.catch((error) => {
+			console.log('Error in GET', error);
+			res.sendStatus(500);
+		});
+});
+
 //   res.sendStatus(200); // For testing only, can be removed
 
 /**
