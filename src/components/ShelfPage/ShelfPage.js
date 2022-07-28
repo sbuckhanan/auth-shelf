@@ -25,14 +25,25 @@ function ShelfPage() {
 
 	return (
 		<div className='container'>
-			<input
-				type='text'
-				placeholder='Description'
-				onChange={(e) => setDescription(e.target.value)}
-				value={description}
-			/>
-			<input type='text' placeholder='URL' onChange={(e) => setUrl(e.target.value)} value={url} />
-			<button onClick={handleStuff}>ADD</button>
+			{user.id ? (
+				<>
+					<input
+						type='text'
+						placeholder='Description'
+						onChange={(e) => setDescription(e.target.value)}
+						value={description}
+					/>
+					<input
+						type='text'
+						placeholder='URL'
+						onChange={(e) => setUrl(e.target.value)}
+						value={url}
+					/>
+					<button onClick={handleStuff}>ADD</button>
+				</>
+			) : (
+				''
+			)}
 			<h2>Shelf</h2>
 			{items.map((item) =>
 				item.user_id === user.id ? (
