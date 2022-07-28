@@ -10,7 +10,7 @@ function ShelfPage() {
 	const [description, setDescription] = useState('');
 
 	const handleStuff = () => {
-		dispatch({ type: 'ADD_ITEM', payload: { url, description } });
+		dispatch({ type: 'ADD_ITEM', payload: { url, description, user_id: user.id } });
 	};
 
 	useEffect(() => {
